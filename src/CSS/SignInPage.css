@@ -1,0 +1,157 @@
+/* Global styles for the body */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #212121; /* Background for the whole page */
+    color: #fff; /* White text color for the entire page */
+    font-family: 'Monospace', sans-serif; /* Consistent monospace font for the whole page */
+    letter-spacing: 0.05em;
+    height: 100vh; /* Make sure body takes full viewport height */
+    display: flex;
+    justify-content: center; /* Center the content horizontally */
+    align-items: center; /* Center content vertically */
+    padding: 0;
+    position: relative;
+  }
+  
+  /* Layout for the wrapper containing the form and animation */
+  .wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 80%; /* This ensures it takes 80% of the width */
+    gap: 300px; /* Space between animated wrapper and form */
+  }
+  
+  /* AnimatedWrapper Styling */
+  .animated-wrapper {
+    flex: 1; /* Take up equal space */
+    position: relative;
+    z-index: 0; /* Ensure it's below the form */
+  }
+  
+  /* SignIn Form Container */
+  .form-wrapper {
+    width: 500px; /* Make the form wider */
+    padding: 40px;
+    background-color: #212121; /* Dark background to make text visible */
+    color: #fff;
+    position: relative;
+    border: 2px solid rgba(255, 255, 255, 0.2); /* Light border */
+    border-radius: 8px; /* Rounded corners for the box */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Shadow to create depth */
+    z-index: 1; /* Ensure the form is above the animation */
+  }
+  
+  /* Title Styling (Friendify) */
+  .form-wrapper h1 {
+    font-size: 24px;
+    text-align: center;
+    color: #fff;
+    margin-bottom: 40px;
+    opacity: 0; /* Initially set opacity to 0 */
+    animation: fadeIn 2s forwards; /* Apply the fade-in animation */
+    font-family: 'Monospace', sans-serif; /* Ensure the same font is used */
+  }
+  
+  /* Define the fade-in animation */
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  /* Control Container */
+  .form-wrapper .control {
+    margin: 0 0 24px;
+  }
+  
+  /* Block Cube Animation */
+  .block-cube {
+    position: relative;
+  }
+  
+  .block-cube .bg-top,
+  .block-cube .bg-right,
+  .block-cube .bg {
+    position: absolute;
+    background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(52, 9, 121, 1) 37%, rgba(0, 212, 255, 1) 94%);
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .block-cube .bg-top {
+    height: 10px;
+    bottom: 100%;
+    left: 5px;
+    right: -5px;
+    transform: skew(-45deg, 0);
+    margin: 0;
+  }
+  
+  .block-cube .bg-right {
+    width: 10px;
+    top: -5px;
+    bottom: 5px;
+    left: 100%;
+    transform: skew(0, -45deg);
+  }
+  
+  .block-cube .bg-inner {
+    position: absolute;
+    left: 2px;
+    top: 2px;
+    right: 2px;
+    bottom: 2px;
+    background: #212121;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .block-cube:focus-within .bg-top,
+  .block-cube:focus-within .bg-right,
+  .block-cube:focus-within .bg {
+    background: rgba(255, 255, 255, 0.5);
+  }
+  
+  .block-cube:focus-within .bg-inner {
+    top: 100%;
+  }
+  
+  /* Targeting Autofill background */
+  input:-webkit-autofill {
+    background-color: #212121 !important;
+    color: white !important;
+  }
+  
+  input:-webkit-autofill::first-line {
+    font-family: 'Monospace' !important;
+    font-size: 16px !important;
+  }
+  
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+  }
+  
+  /* Animated Border Effect */
+  .form-wrapper:hover,
+  .form-wrapper:focus-within {
+    border-color: rgba(0, 212, 255, 1); /* Highlight border when hovered or focused */
+    box-shadow: 0 0 15px rgba(105, 159, 170, 0.6); /* Animated glow effect */
+    transform: scale(1.05); /* Slight scale animation */
+  }
+  
+  /* Ball Animation */
+  .follow-pointer-ball {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: rgba(0, 212, 255, 1); /* Match the input outline color */
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: -1; /* Ball should be behind form */
+    transition: transform 0.3s ease;
+  }
+  
